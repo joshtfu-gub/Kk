@@ -72,7 +72,7 @@ OrionLib:MakeNotification({
 
 	Image = "rbxassetid://4483345998",
 
-	Time = 60
+	Time = 3
 
 })
 

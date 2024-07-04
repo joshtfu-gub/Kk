@@ -1,0 +1,447 @@
+--[[
+
+You must not to be here, if you're looking for script just copy this all
+
+]]
+
+local player = game.Players.LocalPlayer
+
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Realistic Street Soccer Script", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+--[[
+
+Name = <string> - The name of the UI.
+
+HidePremium = <bool> - Whether or not the user details shows Premium status or not.
+
+SaveConfig = <bool> - Toggles the config saving in the UI.
+
+ConfigFolder = <string> - The name of the folder where the configs are saved.
+
+IntroEnabled = <bool> - Whether or not to show the intro animation.
+
+IntroText = <string> - Text to show in the intro animation.
+
+IntroIcon = <string> - URL to the image you want to use in the intro animation.
+
+Icon = <string> - URL to the image you want displayed on the window.
+
+CloseCallback = <function> - Function to execute when the window is closed.
+
+]]
+
+local Tab = Window:MakeTab({
+
+	Name = "Main",
+
+	Icon = "rbxassetid://4483345998",
+
+	PremiumOnly = false
+
+})
+
+--[[
+
+Name = <string> - The name of the tab.
+
+Icon = <string> - The icon of the tab.
+
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+
+]]
+
+local Section = Tab:AddSection({
+
+	Name = "Section"
+
+})
+
+--[[
+
+Name = <string> - The name of the section.
+
+]]
+
+OrionLib:MakeNotification({
+
+	Name = "Made By JN HH Gaming",
+
+	Content = "Like and Subscribe to JN HH Gaming on Youtube",
+
+	Image = "rbxassetid://4483345998",
+
+	Time = 60
+
+})
+
+--[[
+
+Title = <string> - The title of the notification.
+
+Content = <string> - The content of the notification.
+
+Image = <string> - The icon of the notification.
+
+Time = <number> - The duration of the notfication.
+
+]]
+
+Tab:AddButton({
+
+	Name = "Fast Dribble",
+
+	Callback = function()
+
+      		function isNumber(str)
+
+  if tonumber(str) ~= nil or str == 'inf' then
+
+    return true
+
+  end
+
+end
+
+local tspeed = 0.1
+
+local hb = game:GetService("RunService").Heartbeat
+
+local tpwalking = true
+
+local player = game:GetService("Players")
+
+local lplr = player.LocalPlayer
+
+local chr = lplr.Character
+
+local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+
+while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+
+  if hum.MoveDirection.Magnitude > 0 then
+
+    if tspeed and isNumber(tspeed) then
+
+      chr:TranslateBy(hum.MoveDirection * tonumber(tspeed))
+
+    else
+
+      chr:TranslateBy(hum.MoveDirection)
+
+    end
+
+  end
+
+end
+
+  	end    
+
+})
+
+--[[
+
+Name = <string> - The name of the button.
+
+Callback = <function> - The function of the button.
+
+]]
+
+Tab:AddButton({
+
+	Name = "Reach [May not work]",
+
+	Callback = function()
+
+      		print("Reach Value 69")
+
+  	end    
+
+})
+
+Tab:AddButton({
+
+	Name = "Infinite Stamina [Do not tap on sprint]",
+
+	Callback = function()
+
+      		function isNumber(str)
+
+  if tonumber(str) ~= nil or str == 'inf' then
+
+    return true
+
+  end
+
+end
+
+local tspeed = 0.3
+
+local hb = game:GetService("RunService").Heartbeat
+
+local tpwalking = true
+
+local player = game:GetService("Players")
+
+local lplr = player.LocalPlayer
+
+local chr = lplr.Character
+
+local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+
+while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+
+  if hum.MoveDirection.Magnitude > 0 then
+
+    if tspeed and isNumber(tspeed) then
+
+      chr:TranslateBy(hum.MoveDirection * tonumber(tspeed))
+
+    else
+
+      chr:TranslateBy(hum.MoveDirection)
+
+    end
+
+  end
+
+end
+
+  	end    
+
+})
+
+Tab:AddButton({
+
+	Name = "Speed [Op but risky]",
+
+	Callback = function()
+
+      		function isNumber(str)
+
+  if tonumber(str) ~= nil or str == 'inf' then
+
+    return true
+
+  end
+
+end
+
+local tspeed = 1.5
+
+local hb = game:GetService("RunService").Heartbeat
+
+local tpwalking = true
+
+local player = game:GetService("Players")
+
+local lplr = player.LocalPlayer
+
+local chr = lplr.Character
+
+local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+
+while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+
+  if hum.MoveDirection.Magnitude > 0 then
+
+    if tspeed and isNumber(tspeed) then
+
+      chr:TranslateBy(hum.MoveDirection * tonumber(tspeed))
+
+    else
+
+      chr:TranslateBy(hum.MoveDirection)
+
+    end
+
+  end
+
+end
+
+  	end    
+
+})
+
+--[[
+
+Name = <string> - The name of the button.
+
+Callback = <function> - The function of the button.
+
+]]
+
+Tab:AddButton({
+
+	Name = "Esp Players",
+
+	Callback = function()
+
+      		local Players = game:GetService("Players")
+
+local RunService = game:GetService("RunService")
+
+local function createBox()
+
+    local box = Instance.new("BoxHandleAdornment")
+
+    box.Size = Vector3.new(5, 5, 2)
+
+    box.Color3 = Color3.new(1,0,0)
+
+    box.Transparency = 0.1
+
+    box.ZIndex = 5
+
+    return box
+
+end
+
+local function updateEsp(player, box)
+
+    local character = player.Character
+
+    if character and character:FindFirstChild("HumanoidRootPart") then
+
+        box.Visible = true
+
+        box.Adornee = character.HumanoidRootPart
+
+        box.Parent = character.HumanoidRootPart
+
+    else
+
+        box.Visible = false
+
+        box.Adornee = nil
+
+        box.Parent = nil
+
+    end
+
+end
+
+local function onPlayerAdded(player)
+
+    local box = createBox()
+
+    updateEsp(player, box)
+
+    player.CharacterAdded:Connect(function()
+
+        updateEsp(player, box)
+
+    end)
+
+    player.CharacterRemoving:Connect(function()
+
+        updateEsp(player, box)
+
+    end)
+
+end
+
+for _, player in ipairs(Players:GetPlayers()) do
+
+    onPlayerAdded(player)
+
+end
+
+Players.PlayerAdded:Connect(function(player)
+
+    onPlayerAdded(player)
+
+end)
+
+RunService.RenderStepped:Connect(function()
+
+    for _, player in ipairs(Players:GetPlayers()) do
+
+        updateEsp(player)
+
+    end
+
+end)
+
+  	end    
+
+})
+
+--[[
+
+Name = <string> - The name of the button.
+
+Callback = <function> - The function of the button.
+
+]]
+
+local Tab = Window:MakeTab({
+
+	Name = "Credits",
+
+	Icon = "rbxassetid://4483345998",
+
+	PremiumOnly = false
+
+})
+
+Tab:AddButton({
+
+	Name = "Made By JN HH Gaming",
+
+	Callback = function()
+
+      		print("button pressed")
+
+  	end    
+
+})
+
+--[[
+
+Name = <string> - The name of the button.
+
+Callback = <function> - The function of the button.
+
+]]
+
+Tab:AddButton({
+
+	Name = "Orion Lib",
+
+	Callback = function()
+
+      		print("button pressed")
+
+  	end    
+
+})
+
+--[[
+
+Name = <string> - The name of the button.
+
+Callback = <function> - The function of the button.
+
+]]
+
+Tab:AddButton({
+
+	Name = "Destory Ui [ShutDown Script]",
+
+	Callback = function()
+
+      		OrionLib:Destroy()
+
+  	end    
+
+})
+
+--[[
+
+Name = <string> - The name of the button.
+
+Callback = <function> - The function of the button.
+
+]]

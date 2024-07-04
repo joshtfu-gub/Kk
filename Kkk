@@ -176,7 +176,7 @@ Tab:AddButton({
 
 end
 
-local tspeed = 0.3
+local tspeed = 0.2
 
 local hb = game:GetService("RunService").Heartbeat
 
